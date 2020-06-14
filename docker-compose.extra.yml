@@ -1,0 +1,21 @@
+version: '3.2'
+
+services:
+
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
+volumes:
+  mosquitto_data:
+  mosquitto_log:
