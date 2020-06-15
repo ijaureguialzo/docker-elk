@@ -17,6 +17,7 @@ filebeat.inputs:
           target: ""
           overwrite_keys: false
           add_error_key: true
+    index: "mqtt-dht22-%{+yyyy.MM.dd}"
 
 processors:
   - add_cloud_metadata: ~
